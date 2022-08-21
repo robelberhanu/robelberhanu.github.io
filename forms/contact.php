@@ -49,5 +49,15 @@ $subject = "Message From Client";
 $mailheader = "From: $email \r\n";
 mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
 echo "Thank You!";
+<?php 
+$name = $_POST['name'];
+$email = $_POST['email'];
+$subject = $_POST['subject'];
+$formcontent="From: $name \n Message: $message";
+$recipient = "robelberhanu89@gmail.com";
+$subject = "Message From Client";
+$mailheader = "From: $email \r\n";
+mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
+echo "Thank You!";
 ?>
  
