@@ -43,6 +43,7 @@
 $name = $_POST['name'];
 $email = $_POST['email'];
 $subject = $_POST['subject'];
+$subject = $_POST['subject'];
 $formcontent="From: $name \n Message: $message";
 $recipient = "robelberhanu89@gmail.com";
 $subject = "Message From Client";
