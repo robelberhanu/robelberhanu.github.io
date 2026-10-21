@@ -132,6 +132,27 @@
     .dot { animation: pulse 2.2s ease-in-out infinite; }
     @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgb(16 185 129 / .5); } 50% { box-shadow: 0 0 0 6px rgb(16 185 129 / 0); } }
 
+    /* code typing */
+    .code { font-family: 'JetBrains Mono', ui-monospace, monospace; white-space: pre; tab-size: 4; }
+    .code .k { color: #c4b5fd; } .code .f, .code .t { color: #7dd3fc; } .code .s { color: #86efac; } .code .d { color: #fbbf24; }
+    .code .n { color: #fda4af; } .code .c, .code .m, .code .p { color: #737373; } .code .i { color: #38bdf8; } .code .g { color: #4ade80; }
+    .caret { display: inline-block; width: .55ch; height: 1.05em; vertical-align: -.18em; margin-left: 1px; background: currentColor; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .term { box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6); }
+
+    /* flow diagram */
+    .diagram .edge { fill: none; stroke: rgb(var(--line)); stroke-width: 1.5; }
+    .diagram .flow { fill: none; stroke: rgb(var(--accent)); stroke-width: 1.5; stroke-dasharray: 3 9; stroke-linecap: round; animation: dash 1.4s linear infinite; opacity: .85; }
+    @keyframes dash { to { stroke-dashoffset: -12; } }
+    .diagram .pkt { fill: rgb(var(--accent)); }
+    .diagram .box { fill: rgb(var(--surface)); stroke: rgb(var(--line)); stroke-width: 1.5; }
+    .diagram .halo { fill: none; stroke: rgb(var(--accent)); stroke-width: 1.5; animation: halo 2.6s ease-in-out infinite; }
+    @keyframes halo { 0%, 100% { opacity: .1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.04); } }
+    .diagram .t1 { fill: rgb(var(--fg)); font: 500 13px Inter, sans-serif; }
+    .diagram .t2 { fill: rgb(var(--muted)); font: 11px 'JetBrains Mono', monospace; }
+    .diagram .lbl { fill: rgb(var(--muted)); font: 10px 'JetBrains Mono', monospace; letter-spacing: .04em; }
+    .diagram .pill { fill: rgb(var(--bg)); }
+
     section { scroll-margin-top: 5rem; }
     ::selection { background: rgb(var(--accent) / .25); }
 
@@ -140,6 +161,7 @@
       .hw > span, .fu { opacity: 1; transform: none; } .unveil { clip-path: none; } .unveil img { transform: none; }
       .js [data-reveal] { opacity: 1; transform: none; } .rule { transform: none; }
       .marquee { width: auto; flex-wrap: wrap; justify-content: center; }
+      .diagram .pkt { display: none; } .caret { display: none; }
     }
   </style>
 </head>
@@ -233,7 +255,7 @@
         </div>
 
         <div class="lg:col-span-5">
-          <figure class="fu mx-auto max-w-[17rem] sm:max-w-xs lg:ml-auto lg:max-w-[20rem]" style="--d:200ms">
+          <figure class="fu relative mx-auto max-w-[17rem] sm:max-w-xs lg:ml-auto lg:max-w-[20rem]" style="--d:200ms">
             <div class="unveil aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-900">
               <img src="assets/img/robel.jpg" alt="Portrait of Robel Berhanu" width="960" height="1200" class="h-full w-full object-cover" fetchpriority="high">
             </div>
@@ -241,6 +263,13 @@
               <span>Johannesburg · <time id="clock">--:--</time> SAST</span>
               <span class="inline-flex items-center gap-1.5"><i data-lucide="map-pin" class="h-3.5 w-3.5"></i>GMT+2</span>
             </figcaption>
+            <div class="term fu mt-4 w-full overflow-hidden rounded-xl bg-neutral-950 text-neutral-200 ring-1 ring-white/10 lg:absolute lg:-left-24 lg:bottom-14 lg:mt-0 lg:w-[290px]" style="--d:900ms" aria-hidden="true">
+              <div class="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
+                <span class="h-2 w-2 rounded-full bg-white/15"></span><span class="h-2 w-2 rounded-full bg-white/15"></span><span class="h-2 w-2 rounded-full bg-white/15"></span>
+                <span class="ml-2 font-mono text-[10px] text-neutral-500">zsh — api</span>
+              </div>
+              <pre id="term" class="code overflow-hidden px-3 py-2.5 text-[11px] leading-[1.7]"></pre>
+            </div>
           </figure>
         </div>
       </div>
@@ -315,6 +344,7 @@
           <div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
             <span class="h-2.5 w-2.5 rounded-full bg-line"></span><span class="h-2.5 w-2.5 rounded-full bg-line"></span><span class="h-2.5 w-2.5 rounded-full bg-line"></span>
             <span class="ml-3 flex-1 rounded-md bg-bg px-3 py-1 font-mono text-[11px] text-muted">tasportals.com</span>
+            <span class="hidden font-mono text-[10px] text-emerald-600 dark:text-emerald-400 sm:inline">200 OK</span>
             <i data-lucide="arrow-up-right" class="h-4 w-4 text-muted"></i>
           </div>
           <div class="overflow-hidden"><img src="assets/img/tasportals.jpg" alt="TAS Portals — agent portal sign-in showing supported airlines" width="1440" height="900" loading="lazy" class="block w-full"></div>
@@ -383,6 +413,7 @@
           <div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
             <span class="h-2.5 w-2.5 rounded-full bg-line"></span><span class="h-2.5 w-2.5 rounded-full bg-line"></span><span class="h-2.5 w-2.5 rounded-full bg-line"></span>
             <span class="ml-3 flex-1 rounded-md bg-bg px-3 py-1 font-mono text-[11px] text-muted">kashpoint.co.za</span>
+            <span class="hidden font-mono text-[10px] text-emerald-600 dark:text-emerald-400 sm:inline">200 OK</span>
             <i data-lucide="arrow-up-right" class="h-4 w-4 text-muted"></i>
           </div>
           <div class="overflow-hidden"><img src="assets/img/kashpoint.jpg" alt="Kashpoint — smart point of sale landing page" width="1440" height="900" loading="lazy" class="block w-full"></div>
@@ -390,11 +421,98 @@
       </article>
     </section>
 
+    <!-- Under the hood -->
+    <section id="hood" class="border-t border-line">
+      <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+        <div class="max-w-2xl" data-reveal>
+          <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">02 — Under the hood</p>
+          <h2 class="mt-3 font-serif text-4xl tracking-tight text-fg sm:text-5xl">How my systems <span class="italic">fit together.</span></h2>
+          <p class="mt-4 text-[15px] leading-relaxed text-muted">A typical request through the platforms I build: one typed Python service in the middle, everything else behind it.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-12 lg:gap-10">
+          <div class="card rounded-2xl border border-line bg-surface p-4 sm:p-6 lg:col-span-7" data-reveal>
+            <div class="flex items-center justify-between font-mono text-[11px] text-muted">
+              <span>request lifecycle</span>
+              <span class="inline-flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>live</span>
+            </div>
+            <svg class="diagram mt-3 h-auto w-full" viewBox="0 0 640 330" role="img" aria-label="Diagram: a web app sends requests to a FastAPI service, which talks to a PostgreSQL ledger, airline GDS and NDC APIs, and a payment gateway">
+              <defs>
+                <path id="e1" d="M165 157 H245"/>
+                <path id="e1b" d="M245 173 H165"/>
+                <path id="e2" d="M395 165 C 440 165, 430 57, 475 57"/>
+                <path id="e3" d="M395 165 H475"/>
+                <path id="e4" d="M395 165 C 440 165, 430 273, 475 273"/>
+              </defs>
+              <g>
+                <use href="#e1" class="edge"/><use href="#e1b" class="edge"/><use href="#e2" class="edge"/><use href="#e3" class="edge"/><use href="#e4" class="edge"/>
+                <use href="#e1" class="flow"/><use href="#e2" class="flow" style="animation-delay:-.4s"/><use href="#e3" class="flow" style="animation-delay:-.8s"/><use href="#e4" class="flow" style="animation-delay:-1.2s"/>
+              </g>
+              <g>
+                <rect class="pill" x="186" y="139" width="38" height="13" rx="6"/><text class="lbl" x="205" y="149" text-anchor="middle">JSON</text>
+                <rect class="pill" x="185" y="178" width="40" height="13" rx="6"/><text class="lbl" x="205" y="188" text-anchor="middle">201</text>
+                <rect class="pill" x="405" y="93" width="62" height="13" rx="6"/><text class="lbl" x="436" y="103" text-anchor="middle">SQL · txn</text>
+                <rect class="pill" x="400" y="143" width="72" height="13" rx="6"/><text class="lbl" x="436" y="153" text-anchor="middle">SOAP · REST</text>
+                <rect class="pill" x="405" y="227" width="62" height="13" rx="6"/><text class="lbl" x="436" y="237" text-anchor="middle">webhook</text>
+              </g>
+              <g>
+                <circle class="pkt" r="3.5"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#e1"/></animateMotion></circle>
+                <circle class="pkt" r="3.5"><animateMotion dur="2.4s" repeatCount="indefinite" begin="1.2s"><mpath href="#e1b"/></animateMotion></circle>
+                <circle class="pkt" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin=".4s"><mpath href="#e2"/></animateMotion></circle>
+                <circle class="pkt" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1s"><mpath href="#e3"/></animateMotion></circle>
+                <circle class="pkt" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.6s"><mpath href="#e4"/></animateMotion></circle>
+              </g>
+              <g>
+                <rect class="box" x="15" y="136" width="150" height="58" rx="12"/>
+                <text class="t1" x="90" y="161" text-anchor="middle">Web app</text>
+                <text class="t2" x="90" y="179" text-anchor="middle">React · TypeScript</text>
+
+                <rect class="halo" x="239" y="130" width="162" height="70" rx="15" style="transform-origin:320px 165px"/>
+                <rect class="box" x="245" y="136" width="150" height="58" rx="12"/>
+                <text class="t1" x="320" y="161" text-anchor="middle">FastAPI service</text>
+                <text class="t2" x="320" y="179" text-anchor="middle">Python · Pydantic</text>
+
+                <rect class="box" x="475" y="28" width="150" height="58" rx="12"/>
+                <text class="t1" x="550" y="53" text-anchor="middle">PostgreSQL</text>
+                <text class="t2" x="550" y="71" text-anchor="middle">double-entry ledger</text>
+
+                <rect class="box" x="475" y="136" width="150" height="58" rx="12"/>
+                <text class="t1" x="550" y="161" text-anchor="middle">Airline APIs</text>
+                <text class="t2" x="550" y="179" text-anchor="middle">GDS · IATA NDC</text>
+
+                <rect class="box" x="475" y="244" width="150" height="58" rx="12"/>
+                <text class="t1" x="550" y="269" text-anchor="middle">Payment gateway</text>
+                <text class="t2" x="550" y="287" text-anchor="middle">Paystack · cards</text>
+              </g>
+              <text class="lbl" x="15" y="318">— request   ··· data in flight</text>
+            </svg>
+          </div>
+
+          <div class="lg:col-span-5" data-reveal style="--d:120ms">
+            <div class="divide-y divide-line border-y border-line">
+              <div class="row flex gap-4 py-5">
+                <i data-lucide="plug" class="mt-0.5 h-5 w-5 shrink-0 text-accent"></i>
+                <div><p class="font-medium text-fg">One service, many dialects</p><p class="mt-1 text-sm leading-relaxed text-muted">Airlines speak SOAP and XML, payment gateways speak REST and webhooks. The web app only ever talks to one FastAPI service.</p></div>
+              </div>
+              <div class="row flex gap-4 py-5">
+                <i data-lucide="wallet" class="mt-0.5 h-5 w-5 shrink-0 text-accent"></i>
+                <div><p class="font-medium text-fg">Money moves in one transaction</p><p class="mt-1 text-sm leading-relaxed text-muted">A wallet debit and a ticket issue commit together on a double-entry ledger — or neither does.</p></div>
+              </div>
+              <div class="row flex gap-4 py-5">
+                <i data-lucide="shield-check" class="mt-0.5 h-5 w-5 shrink-0 text-accent"></i>
+                <div><p class="font-medium text-fg">Typed, tested, shipped</p><p class="mt-1 text-sm leading-relaxed text-muted">Pydantic models at the edges, pytest before every release, Docker containers on DigitalOcean.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- About -->
     <section id="about" class="border-t border-line">
       <div class="mx-auto grid max-w-6xl gap-10 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-12">
         <div class="lg:col-span-4" data-reveal>
-          <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">02 — About</p>
+          <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">03 — About</p>
           <h2 class="mt-3 font-serif text-4xl tracking-tight text-fg sm:text-5xl">I ship <span class="italic">end to end.</span></h2>
           <p class="mt-5 text-[15px] leading-relaxed text-muted">The API, the data model, the third-party integrations and the interface people use all day — one developer, the whole thing.</p>
         </div>
@@ -460,14 +578,14 @@
       <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <div class="flex items-end justify-between gap-6" data-reveal>
           <div>
-            <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">03 — Stack</p>
+            <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">04 — Stack</p>
             <h2 class="mt-3 font-serif text-4xl tracking-tight text-fg sm:text-5xl">Tools I reach for <span class="italic">every day.</span></h2>
           </div>
         </div>
 
         <div class="card spot mt-10 rounded-2xl border border-line bg-surface p-6 sm:p-8" data-reveal>
           <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
-            <div class="flex items-start gap-5 lg:col-span-7">
+            <div class="flex items-start gap-5 lg:col-span-6">
               <img src="https://cdn.simpleicons.org/python/3776AB" alt="" width="48" height="48" class="mt-1 h-12 w-12 shrink-0" onerror="this.style.display='none'">
               <div>
                 <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">Primary language</p>
@@ -477,7 +595,18 @@
                 </p>
               </div>
             </div>
-            <div class="flex flex-wrap gap-2 lg:col-span-5">
+            <div class="lg:col-span-6">
+              <div class="overflow-hidden rounded-xl bg-neutral-950 text-neutral-200 ring-1 ring-white/10" aria-hidden="true">
+                <div class="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
+                  <span class="h-2 w-2 rounded-full bg-white/15"></span><span class="h-2 w-2 rounded-full bg-white/15"></span><span class="h-2 w-2 rounded-full bg-white/15"></span>
+                  <span class="ml-3 rounded-md bg-white/10 px-2 py-0.5 font-mono text-[10px] text-neutral-300">bookings.py</span>
+                  <span class="px-2 font-mono text-[10px] text-neutral-500">test_bookings.py</span>
+                  <span class="ml-auto font-mono text-[10px] text-neutral-500">Python 3.12</span>
+                </div>
+                <pre id="editor" class="code min-h-[15.5rem] overflow-x-auto px-4 py-3 text-[11.5px] leading-[1.75]"></pre>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 lg:col-span-12">
               <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="" width="16" height="16" onerror="this.style.display='none'">FastAPI</span>
               <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><img src="https://cdn.simpleicons.org/pydantic/E92063" alt="" width="16" height="16" onerror="this.style.display='none'">Pydantic</span>
               <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><img src="https://cdn.simpleicons.org/sqlalchemy/D71F00" alt="" width="16" height="16" onerror="this.style.display='none'">SQLAlchemy</span>
@@ -563,7 +692,7 @@
       <div class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <div class="grid gap-12 lg:grid-cols-12" data-reveal>
           <div class="lg:col-span-7">
-            <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">04 — Contact</p>
+            <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">05 — Contact</p>
             <h2 class="mt-3 font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1] tracking-tightest text-fg">Let's build something <span class="italic text-accent">that ships.</span></h2>
             <p class="mt-6 max-w-lg text-[15px] leading-relaxed text-muted">A custom website, a product to build, an integration to untangle, or a team that needs a full-stack engineer — I'd like to hear about it. I usually reply within a day.</p>
 
@@ -704,6 +833,63 @@
         function done() { label.textContent = 'copied'; setTimeout(function () { label.textContent = 'copy'; }, 1600); }
         if (navigator.clipboard) navigator.clipboard.writeText('robelberhanu89@gmail.com').then(done, done); else done();
       });
+
+      // typing animations
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+      function wrap(cls, text) { return cls ? '<span class="' + cls + '">' + esc(text) + '</span>' : esc(text); }
+      function snapshots(lines) {
+        var out = [], done = '';
+        lines.forEach(function (tokens) {
+          var line = '';
+          tokens.forEach(function (tk) {
+            for (var c = 1; c <= tk[1].length; c++) out.push(done + line + wrap(tk[0], tk[1].slice(0, c)));
+            line += wrap(tk[0], tk[1]);
+          });
+          done += line + '\n';
+          out.push(done);
+        });
+        return out;
+      }
+      function typer(el, lines, hold) {
+        if (!el) return;
+        var snaps = snapshots(lines), caret = '<span class="caret"></span>';
+        if (reduced) { el.innerHTML = snaps[snaps.length - 1]; return; }
+        var i = 0, started = false;
+        function step() {
+          var s = snaps[i]; el.innerHTML = s + caret;
+          var lineEnd = s.charAt(s.length - 1) === '\n';
+          i++;
+          if (i < snaps.length) setTimeout(step, lineEnd ? 320 : 14 + Math.random() * 46);
+          else setTimeout(function () { i = 0; el.innerHTML = caret; setTimeout(step, 500); }, hold);
+        }
+        function start() { if (!started) { started = true; step(); } }
+        if ('IntersectionObserver' in window) {
+          var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { start(); o.disconnect(); } }); }, { threshold: 0.2 });
+          o.observe(el); setTimeout(start, 6000);
+        } else start();
+      }
+      typer(document.getElementById('term'), [
+        [['p', '$ '], ['', 'uvicorn app.main:app --port 8000']],
+        [['i', 'INFO  '], ['', 'Application startup complete.']],
+        [['m', 'POST '], ['', '/bookings '], ['g', '201 Created'], ['m', ' · 184 ms']],
+        [['m', 'POST '], ['', '/wallet/debit '], ['g', '200 OK'], ['m', ' · ledger balanced ✓']]
+      ], 5000);
+      typer(document.getElementById('editor'), [
+        [['d', '@router.post'], ['', '('], ['s', '"/bookings"'], ['', ', status_code='], ['n', '201'], ['', ')']],
+        [['k', 'async def '], ['f', 'create_booking'], ['', '(']],
+        [['', '    req: '], ['t', 'BookingIn'], ['', ',']],
+        [['', '    agent: '], ['t', 'Agent'], ['', ' = Depends(current_agent),']],
+        [['', ') -> '], ['t', 'BookingOut'], ['', ':']],
+        [['', '    offer = '], ['k', 'await '], ['', 'gds.price(req.offer_id)']],
+        [['', '    '], ['k', 'async with '], ['', 'ledger.transaction() '], ['k', 'as'], ['', ' tx:']],
+        [['', '        '], ['k', 'await '], ['', 'wallet.debit(agent.agency_id, offer.total, tx)']],
+        [['', '        order = '], ['k', 'await '], ['', 'gds.issue(offer, req.travellers)']],
+        [['', '    '], ['k', 'return '], ['t', 'BookingOut'], ['', '.from_order(order)']],
+        [['', '']],
+        [['p', '$ '], ['', 'pytest -q']],
+        [['g', '............'], ['m', '  12 passed in 0.84s']]
+      ], 7000);
 
       // local time in Johannesburg
       var clock = document.getElementById('clock');
