@@ -77,8 +77,8 @@
     .text-grad { background: linear-gradient(92deg, #93c5fd 0%, #60a5fa 45%, #818cf8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
     /* scroll reveal */
-    [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0ms); }
-    [data-reveal].in { opacity: 1; transform: none; }
+    .js [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0ms); }
+    .js [data-reveal].in { opacity: 1; transform: none; }
 
     /* rotating word */
     .rot { display: inline-block; transition: opacity .35s, transform .35s; }
@@ -106,9 +106,10 @@
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
-      [data-reveal] { opacity: 1; transform: none; }
+      .js [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body class="font-sans text-slate-300 antialiased overflow-x-hidden">
@@ -217,7 +218,7 @@
         </div>
 
         <!-- Hero visual -->
-        <div class="lg:col-span-5 relative" data-reveal style="--d:120ms">
+        <div class="lg:col-span-5 relative min-w-0" data-reveal style="--d:120ms">
           <div class="relative mx-auto max-w-md">
             <div class="absolute -inset-6 rounded-[2rem] bg-gradient-to-tr from-blue-500/20 via-indigo-500/10 to-transparent blur-2xl"></div>
 
@@ -355,7 +356,7 @@
               <span class="h-3 w-3 rounded-full bg-rose-400/80"></span><span class="h-3 w-3 rounded-full bg-amber-300/80"></span><span class="h-3 w-3 rounded-full bg-emerald-400/80"></span>
               <span class="ml-3 flex-1 rounded-md bg-white/5 px-3 py-1 font-mono text-[11px] text-slate-400">tasportals.com</span>
             </div>
-            <div class="grid grid-cols-[88px_1fr] sm:grid-cols-[120px_1fr] bg-ink-900/60">
+            <div class="grid grid-cols-[88px_minmax(0,1fr)] sm:grid-cols-[120px_minmax(0,1fr)] bg-ink-900/60">
               <div class="border-r border-white/5 p-3 space-y-2">
                 <div class="bar lit w-10"></div>
                 <div class="mt-4 space-y-2.5">
@@ -467,7 +468,7 @@
               <span class="h-3 w-3 rounded-full bg-rose-400/80"></span><span class="h-3 w-3 rounded-full bg-amber-300/80"></span><span class="h-3 w-3 rounded-full bg-emerald-400/80"></span>
               <span class="ml-3 flex-1 rounded-md bg-white/5 px-3 py-1 font-mono text-[11px] text-slate-400">app.kashpoint.co.za/sell</span>
             </div>
-            <div class="grid grid-cols-[1fr_120px] sm:grid-cols-[1fr_170px] bg-ink-900/60">
+            <div class="grid grid-cols-[minmax(0,1fr)_120px] sm:grid-cols-[minmax(0,1fr)_170px] bg-ink-900/60">
               <div class="p-3 sm:p-4">
                 <div class="flex items-center justify-between">
                   <div class="h-7 flex-1 rounded-md bg-white/5 px-2.5 text-[10px] leading-7 text-slate-500">Search products or scan barcode…</div>
@@ -607,7 +608,7 @@
             </div>
             <a href="https://www.linkedin.com/in/robel-b-134b4a144/" target="_blank" rel="noopener noreferrer" class="lift flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
               <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-blue-500/15 text-blue-300"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></span>
-              <span><span class="block text-xs text-slate-500">LinkedIn</span><span class="text-sm font-medium text-white">linkedin.com/in/robel-b-134b4a144</span></span>
+              <span class="min-w-0"><span class="block text-xs text-slate-500">LinkedIn</span><span class="block break-all text-sm font-medium text-white">linkedin.com/in/robel-b-134b4a144</span></span>
             </a>
           </div>
         </div>
@@ -639,14 +640,20 @@
       btn.addEventListener('click', function () { setMenu(menu.classList.contains('hidden')); });
       menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
 
-      // scroll reveal
-      var els = document.querySelectorAll('[data-reveal]');
-      if ('IntersectionObserver' in window) {
+      // scroll reveal: in-view blocks show at once; the observer only handles what is below the fold
+      var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+      function show(el) { el.classList.add('in'); }
+      els.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight + 80) show(el); });
+      var pending = els.filter(function (el) { return !el.classList.contains('in'); });
+      if ('IntersectionObserver' in window && pending.length) {
+        var fired = false;
         var obs = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+          fired = true;
+          entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); obs.unobserve(e.target); } });
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        els.forEach(function (el) { obs.observe(el); });
-      } else { els.forEach(function (el) { el.classList.add('in'); }); }
+        pending.forEach(function (el) { obs.observe(el); });
+        setTimeout(function () { if (!fired) pending.forEach(show); }, 3000);
+      } else { pending.forEach(show); }
 
       // rotating phrase
       var words = ['Python & FastAPI', 'React & TypeScript', 'GDS & IATA NDC', 'PostgreSQL & Supabase', 'wallets & ledgers'];
