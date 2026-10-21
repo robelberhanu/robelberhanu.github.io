@@ -104,9 +104,10 @@
     .shot:hover img { transform: scale(1.035); }
 
     /* brand logos */
-    .logo-strip img { filter: contrast(0) brightness(.5); opacity: .8; transition: filter .4s, opacity .4s, transform .4s; }
-    html.dark .logo-strip img { filter: contrast(0) brightness(1.55); }
-    .logo-strip a:hover img { filter: none; opacity: 1; transform: translateY(-2px); }
+    .logo-strip img, .logo-strip svg { transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+    .logo-strip a { transition: color .3s; }
+    .logo-strip a:hover { color: rgb(var(--fg)); }
+    .logo-strip a:hover img, .logo-strip a:hover svg { transform: translateY(-2px) scale(1.08); }
     .marquee { display: flex; width: max-content; animation: marquee 38s linear infinite; }
     .marquee:hover { animation-play-state: paused; }
     @keyframes marquee { to { transform: translateX(-50%); } }
@@ -210,7 +211,7 @@
             Full-Stack Software Developer <span class="text-muted">— Python, FastAPI, React &amp; scalable APIs</span>
           </p>
           <p class="fu mt-5 max-w-xl text-[15px] leading-relaxed text-muted sm:text-base" style="--d:460ms">
-            Three years building production systems across travel technology, retail point-of-sale and fintech: B2B travel platforms with GDS and IATA NDC integrations, cloud POS with live checkout and multi-branch inventory, agency wallets, double-entry ledgers and payment gateways.
+            <span class="text-fg">Python is my primary language</span>, with three years of it in production: B2B travel platforms with GDS and IATA NDC integrations, cloud POS with live checkout and multi-branch inventory, agency wallets, double-entry ledgers and payment gateways. I also build custom websites and web apps for businesses of any size.
           </p>
 
           <div class="fu mt-8 flex flex-wrap items-center gap-3" style="--d:560ms">
@@ -232,7 +233,7 @@
         </div>
 
         <div class="lg:col-span-5">
-          <figure class="fu mx-auto max-w-sm lg:ml-auto lg:max-w-none" style="--d:200ms">
+          <figure class="fu mx-auto max-w-[17rem] sm:max-w-xs lg:ml-auto lg:max-w-[20rem]" style="--d:200ms">
             <div class="unveil aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-900">
               <img src="assets/img/robel.jpg" alt="Portrait of Robel Berhanu" width="960" height="1200" class="h-full w-full object-cover" fetchpriority="high">
             </div>
@@ -277,7 +278,10 @@
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Node.js"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="" width="26" height="26" onerror="this.style.display='none'">Node.js</a>
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Docker"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="" width="26" height="26" onerror="this.style.display='none'">Docker</a>
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="DigitalOcean"><img src="https://cdn.simpleicons.org/digitalocean/0080FF" alt="" width="26" height="26" onerror="this.style.display='none'">DigitalOcean</a>
-        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Paystack"><img src="https://cdn.simpleicons.org/paystack/00C3F7" alt="" width="26" height="26" onerror="this.style.display='none'">Paystack</a>
+        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Pydantic"><img src="https://cdn.simpleicons.org/pydantic/E92063" alt="" width="26" height="26" onerror="this.style.display='none'">Pydantic</a>
+        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="SQLAlchemy"><img src="https://cdn.simpleicons.org/sqlalchemy/D71F00" alt="" width="26" height="26" onerror="this.style.display='none'">SQLAlchemy</a>
+        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="pytest"><img src="https://cdn.simpleicons.org/pytest/0A9EDC" alt="" width="26" height="26" onerror="this.style.display='none'">pytest</a>
+        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Git"><img src="https://cdn.simpleicons.org/git/F05032" alt="" width="26" height="26" onerror="this.style.display='none'">Git</a>
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Python"><img src="https://cdn.simpleicons.org/python/3776AB" alt="" width="26" height="26" onerror="this.style.display='none'">Python</a>
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="FastAPI"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="" width="26" height="26" onerror="this.style.display='none'">FastAPI</a>
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="React"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="" width="26" height="26" onerror="this.style.display='none'">React</a>
@@ -287,7 +291,10 @@
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Node.js"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="" width="26" height="26" onerror="this.style.display='none'">Node.js</a>
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Docker"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="" width="26" height="26" onerror="this.style.display='none'">Docker</a>
         <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="DigitalOcean"><img src="https://cdn.simpleicons.org/digitalocean/0080FF" alt="" width="26" height="26" onerror="this.style.display='none'">DigitalOcean</a>
-        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Paystack"><img src="https://cdn.simpleicons.org/paystack/00C3F7" alt="" width="26" height="26" onerror="this.style.display='none'">Paystack</a>
+        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Pydantic"><img src="https://cdn.simpleicons.org/pydantic/E92063" alt="" width="26" height="26" onerror="this.style.display='none'">Pydantic</a>
+        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="SQLAlchemy"><img src="https://cdn.simpleicons.org/sqlalchemy/D71F00" alt="" width="26" height="26" onerror="this.style.display='none'">SQLAlchemy</a>
+        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="pytest"><img src="https://cdn.simpleicons.org/pytest/0A9EDC" alt="" width="26" height="26" onerror="this.style.display='none'">pytest</a>
+        <a href="#stack" class="flex items-center gap-3 text-sm text-muted" title="Git"><img src="https://cdn.simpleicons.org/git/F05032" alt="" width="26" height="26" onerror="this.style.display='none'">Git</a>
       </div>
     </section>
 
@@ -310,7 +317,7 @@
             <span class="ml-3 flex-1 rounded-md bg-bg px-3 py-1 font-mono text-[11px] text-muted">tasportals.com</span>
             <i data-lucide="arrow-up-right" class="h-4 w-4 text-muted"></i>
           </div>
-          <div class="overflow-hidden"><img src="assets/img/tasportals.jpg" alt="TAS Portals — country selection landing page" width="1440" height="900" loading="lazy" class="block w-full"></div>
+          <div class="overflow-hidden"><img src="assets/img/tasportals.jpg" alt="TAS Portals — agent portal sign-in showing supported airlines" width="1440" height="900" loading="lazy" class="block w-full"></div>
         </a>
         <div class="lg:col-span-5 lg:pt-2">
           <div class="flex flex-wrap items-center gap-2 font-mono text-[12px] text-muted">
@@ -366,7 +373,7 @@
             <span class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-fg"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="" width="14" height="14" onerror="this.style.display='none'">React</span>
             <span class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-fg"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="" width="14" height="14" onerror="this.style.display='none'">TypeScript</span>
             <span class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-fg"><img src="https://cdn.simpleicons.org/supabase/3FCF8E" alt="" width="14" height="14" onerror="this.style.display='none'">Supabase</span>
-            <span class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-fg"><img src="https://cdn.simpleicons.org/paystack/00C3F7" alt="" width="14" height="14" onerror="this.style.display='none'">Paystack</span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-fg"><i data-lucide="credit-card" class="h-3.5 w-3.5 text-sky-500"></i>Paystack</span>
           </div>
           <a href="https://app.kashpoint.co.za/sell" target="_blank" rel="noopener noreferrer" class="btn mt-7 inline-flex h-11 items-center gap-2 rounded-full bg-fg px-5 text-sm font-medium text-bg hover:opacity-90">
             Open app.kashpoint.co.za <i data-lucide="arrow-up-right" class="ico ico-ur h-4 w-4"></i>
@@ -402,7 +409,7 @@
               <span class="font-mono text-[12px] text-muted">01</span>
               <i data-lucide="server" class="h-5 w-5 shrink-0 text-accent"></i>
               <div class="min-w-0 flex-1">
-                <p class="font-medium text-fg">Backend &amp; APIs</p>
+                <p class="font-medium text-fg">Python backends &amp; APIs</p>
                 <p class="text-sm text-muted">FastAPI services, PostgreSQL schemas, role-based access control, REST and SOAP integrations.</p>
               </div>
               <i data-lucide="arrow-right" class="ico-r hidden h-4 w-4 text-fg sm:block"></i>
@@ -434,6 +441,15 @@
               </div>
               <i data-lucide="arrow-right" class="ico-r hidden h-4 w-4 text-fg sm:block"></i>
             </div>
+            <div class="row flex items-center gap-5 border-b border-line py-5">
+              <span class="font-mono text-[12px] text-muted">05</span>
+              <i data-lucide="globe" class="h-5 w-5 shrink-0 text-accent"></i>
+              <div class="min-w-0 flex-1">
+                <p class="font-medium text-fg">Custom websites &amp; web apps</p>
+                <p class="text-sm text-muted">Marketing sites, landing pages and bespoke web applications for businesses of any size — designed, built and deployed.</p>
+              </div>
+              <i data-lucide="arrow-right" class="ico-r hidden h-4 w-4 text-fg sm:block"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -449,7 +465,35 @@
           </div>
         </div>
 
-        <div class="mt-10 grid gap-4 md:grid-cols-2">
+        <div class="card spot mt-10 rounded-2xl border border-line bg-surface p-6 sm:p-8" data-reveal>
+          <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
+            <div class="flex items-start gap-5 lg:col-span-7">
+              <img src="https://cdn.simpleicons.org/python/3776AB" alt="" width="48" height="48" class="mt-1 h-12 w-12 shrink-0" onerror="this.style.display='none'">
+              <div>
+                <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">Primary language</p>
+                <h3 class="mt-2 font-serif text-3xl tracking-tight text-fg sm:text-4xl">Python, <span class="italic">end to end.</span></h3>
+                <p class="mt-3 text-[15px] leading-relaxed text-muted">
+                  Three years of Python in production, from APIs that take payments to the one-off scripts that keep systems honest. FastAPI services with Pydantic models, async I/O, SQLAlchemy with Alembic migrations, SOAP/XML and REST clients for airline and payment systems, scheduled jobs, pytest suites — and the automation and tooling around all of it.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 lg:col-span-5">
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="" width="16" height="16" onerror="this.style.display='none'">FastAPI</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><img src="https://cdn.simpleicons.org/pydantic/E92063" alt="" width="16" height="16" onerror="this.style.display='none'">Pydantic</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><img src="https://cdn.simpleicons.org/sqlalchemy/D71F00" alt="" width="16" height="16" onerror="this.style.display='none'">SQLAlchemy</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="database" class="h-4 w-4 text-sky-500"></i>Alembic migrations</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="zap" class="h-4 w-4 text-amber-500"></i>asyncio</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><img src="https://cdn.simpleicons.org/pytest/0A9EDC" alt="" width="16" height="16" onerror="this.style.display='none'">pytest</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="plug" class="h-4 w-4 text-violet-500"></i>SOAP/XML &amp; REST clients</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="terminal" class="h-4 w-4 text-emerald-500"></i>Scripting &amp; automation</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="clock" class="h-4 w-4 text-rose-500"></i>Scheduled jobs</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="file-spreadsheet" class="h-4 w-4 text-teal-500"></i>Data exports &amp; reporting</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="braces" class="h-4 w-4 text-indigo-400"></i>Type hints</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
           <div class="card spot rounded-2xl border border-line bg-surface p-6 sm:p-7" data-reveal>
             <div class="flex items-center justify-between">
               <h3 class="font-medium text-fg">Languages &amp; frameworks</h3>
@@ -476,7 +520,7 @@
               <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="braces" class="h-4 w-4 text-muted"></i>RESTful API design</span>
               <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="file-code" class="h-4 w-4 text-muted"></i>SOAP API design</span>
               <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="plane" class="h-4 w-4 text-muted"></i>GDS &amp; IATA NDC APIs</span>
-              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><img src="https://cdn.simpleicons.org/paystack/00C3F7" alt="" width="16" height="16" onerror="this.style.display='none'">Paystack payment gateway</span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="credit-card" class="h-4 w-4 text-sky-500"></i>Paystack payment gateway</span>
               <span class="inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-fg"><i data-lucide="shield-check" class="h-4 w-4 text-muted"></i>Role-based access control</span>
             </div>
           </div>
@@ -521,7 +565,7 @@
           <div class="lg:col-span-7">
             <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">04 — Contact</p>
             <h2 class="mt-3 font-serif text-[clamp(2.6rem,7vw,5.5rem)] leading-[1] tracking-tightest text-fg">Let's build something <span class="italic text-accent">that ships.</span></h2>
-            <p class="mt-6 max-w-lg text-[15px] leading-relaxed text-muted">A product to build, an integration to untangle, or a team that needs a full-stack engineer — I'd like to hear about it. I usually reply within a day.</p>
+            <p class="mt-6 max-w-lg text-[15px] leading-relaxed text-muted">A custom website, a product to build, an integration to untangle, or a team that needs a full-stack engineer — I'd like to hear about it. I usually reply within a day.</p>
 
             <div class="mt-8 flex flex-wrap items-center gap-3">
               <a href="mailto:robelberhanu89@gmail.com" class="ul break-all font-serif text-2xl text-fg sm:text-3xl">robelberhanu89@gmail.com</a>
