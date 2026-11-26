@@ -176,6 +176,7 @@
       <a href="#top" class="font-serif text-[22px] tracking-tight text-fg">Robel <span class="italic">Berhanu</span></a>
 
       <nav class="hidden items-center gap-8 text-sm text-muted md:flex">
+        <a href="#services" class="ul navlink hover:text-fg transition-colors">Services</a>
         <a href="#work" class="ul navlink hover:text-fg transition-colors">Work</a>
         <a href="#about" class="ul navlink hover:text-fg transition-colors">About</a>
         <a href="#stack" class="ul navlink hover:text-fg transition-colors">Stack</a>
@@ -199,11 +200,12 @@
 
   <!-- Mobile nav -->
   <div id="mnav" class="fixed inset-0 z-40 flex flex-col bg-bg px-6 pb-10 pt-28 md:hidden" aria-hidden="true">
-    <a href="#work" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:60ms">Work</a>
-    <a href="#about" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:120ms">About</a>
-    <a href="#stack" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:180ms">Stack</a>
-    <a href="#contact" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:240ms">Contact</a>
-    <div class="mrow mt-auto flex flex-col gap-3" style="--d:320ms">
+    <a href="#services" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:60ms">Services</a>
+    <a href="#work" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:120ms">Work</a>
+    <a href="#about" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:180ms">About</a>
+    <a href="#stack" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:240ms">Stack</a>
+    <a href="#contact" class="border-b border-line py-5 font-serif text-4xl text-fg" style="--d:300ms">Contact</a>
+    <div class="mrow mt-auto flex flex-col gap-3" style="--d:380ms">
       <a href="mailto:robelberhanu89@gmail.com" class="btn inline-flex h-12 items-center justify-center gap-2 rounded-full bg-fg text-sm font-medium text-bg">Email me <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
       <div class="flex justify-center gap-6 pt-2 font-mono text-xs text-muted">
         <a href="https://github.com/robelberhanu" target="_blank" rel="noopener noreferrer" class="ul">GitHub</a>
@@ -328,8 +330,172 @@
       </div>
     </section>
 
+    <!-- Services -->
+    <section id="services" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <div class="flex items-end justify-between gap-6" data-reveal>
+        <div>
+          <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">What I offer</p>
+          <h2 class="mt-3 font-serif text-4xl tracking-tight text-fg sm:text-5xl">Services <span class="italic">for your business.</span></h2>
+        </div>
+        <p class="hidden max-w-xs text-sm text-muted md:block">Custom websites and software for small businesses in South Africa and overseas.</p>
+      </div>
+      <div class="rule mt-8 h-px w-full bg-line" data-reveal></div>
+
+      <!-- Service cards -->
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-reveal>
+        <!-- One-page website -->
+        <div class="card spot rounded-2xl border border-line bg-surface p-6 sm:p-7">
+          <div class="flex items-center justify-between">
+            <i data-lucide="file-text" class="h-6 w-6 text-accent"></i>
+            <span class="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[10px] text-emerald-600 dark:text-emerald-400">Popular</span>
+          </div>
+          <h3 class="mt-4 text-lg font-medium text-fg">One-page business website</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">A single, well-designed page that tells people who you are and what you do. Mobile-friendly, fast to load, and ready to go live in days.</p>
+          <ul class="mt-4 space-y-2 text-sm text-muted">
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Contact form or WhatsApp link</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Mobile-first design</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Basic SEO setup</li>
+          </ul>
+          <div class="mt-6 border-t border-line pt-5">
+            <p class="font-mono text-[11px] uppercase tracking-[.14em] text-muted">Fixed price</p>
+            <p class="mt-1 font-serif text-2xl text-fg">R3,500 <span class="text-base text-muted">South Africa</span></p>
+            <p class="mt-1 text-sm text-muted">US$450 · €420 · £350 · A$680 overseas</p>
+          </div>
+        </div>
+
+        <!-- Full rebuild -->
+        <div class="card spot rounded-2xl border border-line bg-surface p-6 sm:p-7">
+          <div class="flex items-center justify-between">
+            <i data-lucide="refresh-cw" class="h-6 w-6 text-accent"></i>
+          </div>
+          <h3 class="mt-4 text-lg font-medium text-fg">Full website rebuild</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">Your current site, rebuilt from scratch with a modern design, cleaner code, and better performance. I migrate your content and handle the switchover.</p>
+          <ul class="mt-4 space-y-2 text-sm text-muted">
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Multi-page layout</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Content migration</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Performance improvements</li>
+          </ul>
+          <div class="mt-6 border-t border-line pt-5">
+            <p class="font-mono text-[11px] uppercase tracking-[.14em] text-muted">Fixed price</p>
+            <p class="mt-1 font-serif text-2xl text-fg">R15,500 <span class="text-base text-muted">South Africa</span></p>
+            <p class="mt-1 text-sm text-muted">US$900 · €850 · £700 · A$1,350 overseas</p>
+          </div>
+        </div>
+
+        <!-- Booking & e-commerce -->
+        <div class="card spot rounded-2xl border border-line bg-surface p-6 sm:p-7">
+          <div class="flex items-center justify-between">
+            <i data-lucide="shopping-cart" class="h-6 w-6 text-accent"></i>
+          </div>
+          <h3 class="mt-4 text-lg font-medium text-fg">Booking & e-commerce features</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">Add online booking, appointment scheduling, or a simple storefront to your site. I connect the payment flow and make sure orders reach you.</p>
+          <ul class="mt-4 space-y-2 text-sm text-muted">
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Payment gateway setup</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Booking calendar or product catalogue</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Email notifications</li>
+          </ul>
+          <div class="mt-6 border-t border-line pt-5">
+            <p class="font-mono text-[11px] uppercase tracking-[.14em] text-muted">Pricing</p>
+            <p class="mt-1 font-serif text-2xl text-fg">Quoted per project</p>
+            <p class="mt-1 text-sm text-muted">Depends on scope and integrations needed</p>
+          </div>
+        </div>
+
+        <!-- Web apps -->
+        <div class="card spot rounded-2xl border border-line bg-surface p-6 sm:p-7">
+          <div class="flex items-center justify-between">
+            <i data-lucide="layout-dashboard" class="h-6 w-6 text-accent"></i>
+          </div>
+          <h3 class="mt-4 text-lg font-medium text-fg">Web apps & dashboards</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">Internal tools, admin dashboards, or customer-facing apps. Built with React, FastAPI, or Node depending on what fits your stack.</p>
+          <ul class="mt-4 space-y-2 text-sm text-muted">
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>React / TypeScript frontend</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>FastAPI or Node backend</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Database design & deployment</li>
+          </ul>
+          <div class="mt-6 border-t border-line pt-5">
+            <p class="font-mono text-[11px] uppercase tracking-[.14em] text-muted">Pricing</p>
+            <p class="mt-1 font-serif text-2xl text-fg">Quoted per project</p>
+            <p class="mt-1 text-sm text-muted">Scoped based on features and complexity</p>
+          </div>
+        </div>
+
+        <!-- API integrations -->
+        <div class="card spot rounded-2xl border border-line bg-surface p-6 sm:p-7">
+          <div class="flex items-center justify-between">
+            <i data-lucide="plug" class="h-6 w-6 text-accent"></i>
+          </div>
+          <h3 class="mt-4 text-lg font-medium text-fg">API integrations</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">Connect your app to payment gateways, shipping APIs, travel systems, or any third-party service. I handle the plumbing so your systems talk to each other.</p>
+          <ul class="mt-4 space-y-2 text-sm text-muted">
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Payment APIs (Paystack, Stripe, PayPal)</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Travel & booking systems</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>CRM, shipping, and other third-party services</li>
+          </ul>
+          <div class="mt-6 border-t border-line pt-5">
+            <p class="font-mono text-[11px] uppercase tracking-[.14em] text-muted">Pricing</p>
+            <p class="mt-1 font-serif text-2xl text-fg">Quoted per project</p>
+            <p class="mt-1 text-sm text-muted">Based on API complexity and documentation</p>
+          </div>
+        </div>
+
+        <!-- Maintenance -->
+        <div class="card spot rounded-2xl border border-line bg-surface p-6 sm:p-7">
+          <div class="flex items-center justify-between">
+            <i data-lucide="wrench" class="h-6 w-6 text-accent"></i>
+          </div>
+          <h3 class="mt-4 text-lg font-medium text-fg">Maintenance & fixes</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">Bug fixes, security updates, small feature tweaks, or general upkeep. If your site or app needs ongoing care, I can help on a retainer or per-job basis.</p>
+          <ul class="mt-4 space-y-2 text-sm text-muted">
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Bug fixes and patches</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Security updates</li>
+            <li class="flex gap-2"><i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-accent"></i>Small feature additions</li>
+          </ul>
+          <div class="mt-6 border-t border-line pt-5">
+            <p class="font-mono text-[11px] uppercase tracking-[.14em] text-muted">Pricing</p>
+            <p class="mt-1 font-serif text-2xl text-fg">Quoted per project</p>
+            <p class="mt-1 text-sm text-muted">Hourly or retainer options available</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment & currencies -->
+      <div class="mt-12 grid gap-6 lg:grid-cols-2" data-reveal style="--d:120ms">
+        <div class="card rounded-2xl border border-line bg-surface p-6 sm:p-7">
+          <div class="flex items-center gap-3">
+            <i data-lucide="credit-card" class="h-5 w-5 text-accent"></i>
+            <h3 class="font-medium text-fg">How to pay</h3>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            International clients pay by card through <strong class="text-fg">PayPal</strong> or <strong class="text-fg">Payoneer</strong>. South African clients can use <strong class="text-fg">EFT</strong> (bank transfer). I'll send an invoice with payment details once we agree on scope.
+          </p>
+        </div>
+        <div class="card rounded-2xl border border-line bg-surface p-6 sm:p-7">
+          <div class="flex items-center gap-3">
+            <i data-lucide="banknote" class="h-5 w-5 text-accent"></i>
+            <h3 class="font-medium text-fg">Currencies I accept</h3>
+          </div>
+          <div class="mt-3 text-sm leading-relaxed text-muted">
+            <p><strong class="text-fg">ZAR</strong> (South African Rand), <strong class="text-fg">USD</strong>, <strong class="text-fg">EUR</strong>, <strong class="text-fg">GBP</strong>, <strong class="text-fg">AUD</strong></p>
+            <p class="mt-2">Also: <strong class="text-fg">SGD</strong> (~R13), <strong class="text-fg">AED</strong> (~R4.80), <strong class="text-fg">INR</strong> (~R0.19), <strong class="text-fg">JPY</strong> (~R0.11)</p>
+            <p class="mt-2 text-xs text-muted">Rand equivalents are approximate, quoted from 26 November 2026 rates.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-4" data-reveal style="--d:180ms">
+        <a href="#contact" class="btn inline-flex h-12 items-center gap-2 rounded-full bg-fg px-6 text-sm font-medium text-bg hover:opacity-90">
+          Get in touch <i data-lucide="arrow-down" class="ico ico-d h-4 w-4"></i>
+        </a>
+        <a href="mailto:robelberhanu89@gmail.com" class="btn inline-flex h-12 items-center gap-2 rounded-full border border-line bg-surface px-6 text-sm font-medium text-fg hover:border-fg/30">
+          Email me directly <i data-lucide="arrow-up-right" class="ico ico-ur h-4 w-4"></i>
+        </a>
+      </div>
+    </section>
+
     <!-- Work -->
-    <section id="work" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+    <section id="work" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28 border-t border-line">
       <div class="flex items-end justify-between gap-6" data-reveal>
         <div>
           <p class="font-mono text-[12px] uppercase tracking-[.14em] text-muted">01 — Selected work</p>
@@ -783,7 +949,7 @@
         var h = document.documentElement.scrollHeight - window.innerHeight;
         bar.style.width = (h > 0 ? Math.min(100, y / h * 100) : 0) + '%';
         var cur = '';
-        ['work', 'about', 'stack', 'contact'].forEach(function (id) { var s = document.getElementById(id); if (s && s.offsetTop - 140 <= y) cur = id; });
+        ['services', 'work', 'about', 'stack', 'contact'].forEach(function (id) { var s = document.getElementById(id); if (s && s.offsetTop - 140 <= y) cur = id; });
         document.querySelectorAll('.navlink').forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + cur); });
       }
       window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
